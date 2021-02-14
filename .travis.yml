@@ -1,14 +1,12 @@
 language: java
 
-stage:
-  - dev
-
-branches:
-  only:
-    - master
-
 jobs:
   include:
     - stage: dev
-      name: "test1"
-      script: echo "hello world from dev11"
+      name: "job1"
+      script: echo "hello world"
+
+stages:
+  - name: dev
+  if: type = push AND branch = master
+
