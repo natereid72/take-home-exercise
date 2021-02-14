@@ -1,1 +1,25 @@
 language: java
+
+stage:
+  - dev
+  - prod
+
+branches:
+  only:
+    - stages
+
+jobs:
+  include:
+    - stage: dev
+      name: "test1"
+      script: echo "hello world from dev11"
+      
+    - script: echo "hello world from dev22"
+      name: test2     
+    
+    - stage: prod
+      name: test1
+      script: echo "hello world from prod11"
+      
+    - script: echo "hello world from prod22"
+      name: test2
