@@ -9,7 +9,7 @@ stage:
 
 branches:
   only:
-    - stages
+    - master
 
 jobs:
   include:
