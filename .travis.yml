@@ -15,7 +15,7 @@ jobs:
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker tag peepsapi $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
     - docker push $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
-    - docker tag front $DOCKER_USER/peepsapi:latest
+    - docker tag peeps $DOCKER_USER/peepsapi:latest
     - docker push $DOCKER_USER/peepseapi:latest
 
 
