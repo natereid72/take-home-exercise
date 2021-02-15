@@ -16,6 +16,6 @@ jobs:
     - docker tag peepsapi $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
     - docker push $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
     - docker tag peepsapi $DOCKER_USER/peepsapi:latest
-    - docker push $DOCKER_USER/peepseapi:latest
+    - docker push $DOCKER_USER/peepsapi:latest
 
 
