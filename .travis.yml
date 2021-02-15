@@ -1,5 +1,18 @@
 language: java
 
+before_install:
+  - unset _JAVA_OPTIONS
+  - rm ~/.m2/settings.xml
+  - export MAVEN_SKIP_RC=true
+  - export MAVEN_OPTS="-Xmn64M -Xmx512M -XX:CompressedClassSpaceSize=96M"
+  - export JAVA_OPTS="$JAVA_OPTS -XX:CompressedClassSpaceSize=96M"
+
+jdk:
+  - openjdk8
+
+os:
+  - linux
+
 branches:
   only:
     - master
@@ -11,7 +24,7 @@ services:
 
 jobs:
   script:
-    - docker build -t peepsapi .
+    - docker build -t --build-arg JARFILE=person-0.0.1-SNAPSHOT.jar peepsapi .
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker tag peepsapi $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
     - docker push $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
