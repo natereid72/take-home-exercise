@@ -13,10 +13,10 @@ jobs:
   script:
     - docker build -t peopleapi .
   after_success:
-    - docker login -u $docker-user -p $docker-password
-    - docker tag front $docker-user/peopleapi:$TRAVIS_BUILD_NUMBER
-    - docker push $docker-user/peopleapi:$TRAVIS_BUILD_NUMBER
-    - docker tag front $docker-user/peopleapi:latest
-    - docker push $docker-user/paopleapi:latest
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker tag front $DOCKER_USER/peopleapi:$TRAVIS_BUILD_NUMBER
+    - docker push $DOCKER_USER/peopleapi:$TRAVIS_BUILD_NUMBER
+    - docker tag front $DOCKER_USER/peopleapi:latest
+    - docker push $DOCKER_USER/paopleapi:latest
 
 
