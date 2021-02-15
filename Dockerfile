@@ -1,5 +1,5 @@
 FROM openjdk:8-alpine
-MAINTAINER Lee Faus <lee.faus@armory.io>
+MAINTAINER Nate Reid<natereid@yahoo.com>
 
 ARG JARFILE
 ENV JARFILE ${JARFILE}
