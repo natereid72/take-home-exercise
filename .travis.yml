@@ -23,9 +23,12 @@ branches:
 services:
   - docker
 
+stages:
+  - build
+
 jobs:
   include:
-    stage: build
+    - stage: build
       script:
         - docker build -t peepsapi --build-arg JARFILE=person-0.0.1-SNAPSHOT.jar .
         - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
