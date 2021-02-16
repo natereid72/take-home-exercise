@@ -24,12 +24,14 @@ services:
   - docker
 
 jobs:
-  script:
-    - docker build -t peepsapi --build-arg JARFILE=person-0.0.1-SNAPSHOT.jar .
-    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - docker tag peepsapi $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
-    - docker push $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
-    - docker tag peepsapi $DOCKER_USER/peepsapi:latest
-    - docker push $DOCKER_USER/peepsapi:latest
+  include:
+    stage: build
+      script:
+        - docker build -t peepsapi --build-arg JARFILE=person-0.0.1-SNAPSHOT.jar .
+        - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        - docker tag peepsapi $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USER/peepsapi:$TRAVIS_BUILD_NUMBER
+        - docker tag peepsapi $DOCKER_USER/peepsapi:latest
+        - docker push $DOCKER_USER/peepsapi:latest
 
 
