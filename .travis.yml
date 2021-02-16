@@ -23,6 +23,9 @@ branches:
 services:
   - docker
 
+stages:
+  - build
+
 jobs:
   include:
     stage: build
